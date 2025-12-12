@@ -42,6 +42,16 @@ public class VastinDbContext : DbContext
             entity.Property(e => e.Content).IsRequired();
             entity.Property(e => e.CommentOwner).IsRequired();
             entity.Property(e => e.VideoOwner).IsRequired();
+            
+            entity.HasOne<User>()
+                .WithMany()
+                .HasForeignKey(e => e.CommentOwner)
+                .OnDelete(DeleteBehavior.Cascade);
+            
+            entity.HasOne<Video>()
+                .WithMany()
+                .HasForeignKey(e => e.VideoOwner)
+                .OnDelete(DeleteBehavior.Cascade);
         });
     }
 }

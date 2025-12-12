@@ -6,16 +6,16 @@ namespace Vastin.Models;
 public class Comment
 {
     [Key]
-    public string Id { get; set; }
+    public int Id { get; set; }
     
     [Required]
     public string Content { get; set; }
     
     [Required]
     [ForeignKey("User_Comment")]
-    public string CommentOwner { get; set; }
+    public int CommentOwner { get; set; }
     
     [Required]
-    [ForeignKey("User_Video")]
-    public string VideoOwner { get; set; }
+    [ForeignKey("Video_Comment")]
+    public int VideoOwner { get; set; }
 }

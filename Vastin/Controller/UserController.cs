@@ -54,21 +54,6 @@ public class UserController : ControllerBase
         }
     }
 
-    [HttpPost("/user/{id}")]
-    public IActionResult UpdateUser([FromRoute] int id)
-    {
-        try
-        {
-            var user = _context.Users.Find(id);
-            if (user == null) return NotFound();
-            return Ok(user);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
-
     [HttpPatch("/user/{id}")]
     public IActionResult UpdateUser([FromRoute] int id, [FromBody] UserDTO user)
     {
