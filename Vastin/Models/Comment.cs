@@ -13,9 +13,9 @@ public class Comment
     
     [Required]
     [ForeignKey("User_Comment")]
-    public int CommentOwner { get; set; }
+    public User CommentOwner { get; set; }
     
     [Required]
     [ForeignKey("Video_Comment")]
-    public int VideoOwner { get; set; }
+    public Video VideoOwner { get; set; }
 }

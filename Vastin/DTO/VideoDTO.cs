@@ -2,10 +2,12 @@ namespace Vastin.DTO;
 
 public class VideoDTO
 {
-    public string Title { get; set; }
-    public string Description { get; set; }
-    public int Length { get; set; }
-    public string VideoPath { get; set; }
-    public string ThumbnailPath { get; set; }
-    public int Owner { get; set; }
+    public string Title { get; set; } = string.Empty;
+    public string Description { get; set; } = string.Empty;
+    public int Length { get; set; } = 0;
+    
+    public IFormFile File { get; set; } = default!;
+    public string VideoPath { get; set; } = string.Empty;
+    public string ThumbnailPath { get; set; } = string.Empty;
+    public UserDTO Owner { get; set; }
 }

@@ -20,5 +20,5 @@ public class Video
     public string ThumbnailPath { get; set; }
     
     [ForeignKey("User_Video")]
-    public int Owner { get; set; }
+    public User Owner { get; set; }
 }

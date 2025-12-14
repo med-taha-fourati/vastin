@@ -4,7 +4,7 @@ namespace Vastin.Models;
 
 public class VastinDbContext : DbContext
 {
-    public VastinDbContext(DbContextOptions<VastinDbContext> options) :base(options)
+    public VastinDbContext(DbContextOptions<VastinDbContext> options) : base(options)
     {
     }
     
@@ -30,27 +30,25 @@ public class VastinDbContext : DbContext
             entity.Property(e => e.Length).IsRequired();
             entity.Property(e => e.VideoPath).IsRequired();
             
-            entity.HasOne<User>()
+            entity.HasOne(e => e.Owner)
                 .WithMany()
-                .HasForeignKey(e => e.Owner)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey("OwnerId")
+                .OnDelete(DeleteBehavior.Restrict);
         });
         
         modelBuilder.Entity<Comment>(entity =>
         {
             entity.HasKey(e => e.Id);
             entity.Property(e => e.Content).IsRequired();
-            entity.Property(e => e.CommentOwner).IsRequired();
-            entity.Property(e => e.VideoOwner).IsRequired();
             
-            entity.HasOne<User>()
+            entity.HasOne(e => e.CommentOwner)
                 .WithMany()
-                .HasForeignKey(e => e.CommentOwner)
-                .OnDelete(DeleteBehavior.Cascade);
+                .HasForeignKey("CommentOwnerId")
+                .OnDelete(DeleteBehavior.Restrict);
             
-            entity.HasOne<Video>()
+            entity.HasOne(e => e.VideoOwner)
                 .WithMany()
-                .HasForeignKey(e => e.VideoOwner)
+                .HasForeignKey("VideoOwnerId")
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }

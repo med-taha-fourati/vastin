@@ -1,5 +1,6 @@
 using Microsoft.EntityFrameworkCore;
 using Vastin.Models;
+using Vastin.Service;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -12,6 +13,7 @@ builder.Services.AddDbContext<VastinDbContext>(options =>
     options.UseNpgsql(builder.Configuration.GetConnectionString("Vastin")));
 
 builder.Services.AddControllers();
+builder.Services.AddScoped<VideoStream>();
 
 var app = builder.Build();
 
