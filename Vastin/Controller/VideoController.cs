@@ -27,7 +27,7 @@ public class VideoController : ControllerBase
         return Ok(videos);
     }
 
-    [HttpGet("/video/{id}")]
+    [HttpGet("/video/metadata/{id}")]
     public IActionResult GetVideo([FromRoute] int id)
     {
         try
@@ -113,7 +113,7 @@ public class VideoController : ControllerBase
         }
     }
 
-    [HttpGet("stream/{id}")]
+    [HttpGet("video/{id}")]
     public async Task StreamVideo(int id)
     {
         var video = _context.Videos.Find(id);
