@@ -32,7 +32,7 @@ public class VastinDbContext : DbContext
             
             entity.HasOne(e => e.Owner)
                 .WithMany()
-                .HasForeignKey("OwnerId")
+                .HasForeignKey(e => e.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
         
@@ -43,12 +43,12 @@ public class VastinDbContext : DbContext
             
             entity.HasOne(e => e.CommentOwner)
                 .WithMany()
-                .HasForeignKey("CommentOwnerId")
+                .HasForeignKey(e => e.CommentOwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
             
             entity.HasOne(e => e.VideoOwner)
                 .WithMany()
-                .HasForeignKey("VideoOwnerId")
+                .HasForeignKey(e => e.VideoOwnerId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }

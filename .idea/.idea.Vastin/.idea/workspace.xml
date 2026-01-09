@@ -10,8 +10,9 @@
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/api/videos/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/videos/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Models/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Comment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Models/Video.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Video.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -61,29 +62,29 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    ".NET Launch Settings Profile.Vastin: http.executor": "Run",
-    "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "git-widget-placeholder": "backend",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "npm.dev.executor": "Run",
-    "ts.external.directory.path": "/mnt/gaming/homework_folder/Vastin/Vastin/Frontend/vastin-video-player/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;.NET Launch Settings Profile.Vastin: http.executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;backend&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;npm.dev.executor&quot;: &quot;Run&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/mnt/gaming/homework_folder/Vastin/Vastin/Frontend/vastin-video-player/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RunManager" selected=".NET Launch Settings Profile.Vastin: http">
     <configuration name="Vastin: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Vastin/Vastin.csproj" />
@@ -146,7 +147,8 @@
       <workItem from="1767901948706" duration="815000" />
       <workItem from="1767902767890" duration="1381000" />
       <workItem from="1767906300890" duration="3047000" />
-      <workItem from="1767989851764" duration="2696000" />
+      <workItem from="1767989851764" duration="4129000" />
+      <workItem from="1767996087974" duration="775000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -236,7 +238,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767991933103</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="will come back to this later">
+      <option name="closed" value="true" />
+      <created>1767993350831</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1767993350831</updated>
+    </task>
+    <option name="localTasksCounter" value="13" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -268,7 +278,8 @@
     <MESSAGE value="adding frontedn in the backend branch (sue me developpers &gt;:3)" />
     <MESSAGE value="react bit thing lmfao" />
     <MESSAGE value="simple api endpoint starter" />
-    <option name="LAST_COMMIT_MESSAGE" value="simple api endpoint starter" />
+    <MESSAGE value="will come back to this later" />
+    <option name="LAST_COMMIT_MESSAGE" value="will come back to this later" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
