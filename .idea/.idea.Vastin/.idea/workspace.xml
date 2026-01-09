@@ -9,12 +9,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/api/videos/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/watch/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Comment.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/User.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/url.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/globals.css" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/globals.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,6 +29,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -130,7 +132,8 @@
       <workItem from="1765751380895" duration="2134000" />
       <workItem from="1767901948706" duration="815000" />
       <workItem from="1767902767890" duration="1381000" />
-      <workItem from="1767906300890" duration="1928000" />
+      <workItem from="1767906300890" duration="3047000" />
+      <workItem from="1767989851764" duration="1989000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -204,7 +207,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767904108885</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="react bit thing lmfao">
+      <option name="closed" value="true" />
+      <created>1767908451465</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1767908451465</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,7 +245,8 @@
     <MESSAGE value="edit the enpoint for metadata :p" />
     <MESSAGE value="edit the endpoint in the controller :p" />
     <MESSAGE value="adding frontedn in the backend branch (sue me developpers &gt;:3)" />
-    <option name="LAST_COMMIT_MESSAGE" value="adding frontedn in the backend branch (sue me developpers &gt;:3)" />
+    <MESSAGE value="react bit thing lmfao" />
+    <option name="LAST_COMMIT_MESSAGE" value="react bit thing lmfao" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
