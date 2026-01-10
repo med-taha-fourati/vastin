@@ -2,11 +2,11 @@ import {User} from "@/types/User";
 
 export type Video = {
     id: Number,
-    title: String | null,
-    description: String  | null,
+    title: string | undefined,
+    description: string  | undefined,
     length:  Number | 0,
-    videoPath: String | null,
-    thumbnailPath: String | null,
+    videoPath: string | undefined,
+    thumbnailPath: string | undefined,
     owner: User
 };
 
