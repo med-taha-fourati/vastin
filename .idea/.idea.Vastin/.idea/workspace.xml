@@ -9,11 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/VideoCard/VideoCard.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/colorScheme.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -26,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript JSX File" />
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -86,7 +87,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Vastin: http">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Vastin: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Vastin/Vastin.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -150,7 +151,8 @@
       <workItem from="1767906300890" duration="3047000" />
       <workItem from="1767989851764" duration="4129000" />
       <workItem from="1767996087974" duration="2030000" />
-      <workItem from="1768070260726" duration="3899000" />
+      <workItem from="1768070260726" duration="4553000" />
+      <workItem from="1768436634469" duration="5869000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -256,7 +258,15 @@
       <option name="project" value="LOCAL" />
       <updated>1767997230616</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="please work">
+      <option name="closed" value="true" />
+      <created>1768074842143</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1768074842143</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -290,7 +300,8 @@
     <MESSAGE value="simple api endpoint starter" />
     <MESSAGE value="will come back to this later" />
     <MESSAGE value="fix the fuggin uhhh migration" />
-    <option name="LAST_COMMIT_MESSAGE" value="fix the fuggin uhhh migration" />
+    <MESSAGE value="please work" />
+    <option name="LAST_COMMIT_MESSAGE" value="please work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
