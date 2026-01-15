@@ -21,7 +21,7 @@ export const VideoCard = (video: Video) => {
                             {video.owner.username}
                         </Typography>
                         <Typography variant="caption" color="text.secondary">
-                            {video.length}
+                            {video.length.toString()}
                         </Typography>
                     </Box>
                 </CardContent>
