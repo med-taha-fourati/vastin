@@ -9,12 +9,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/VideoCard/VideoCard.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/colorScheme.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -152,7 +150,8 @@
       <workItem from="1767989851764" duration="4129000" />
       <workItem from="1767996087974" duration="2030000" />
       <workItem from="1768070260726" duration="4553000" />
-      <workItem from="1768436634469" duration="5869000" />
+      <workItem from="1768436634469" duration="6139000" />
+      <workItem from="1768526693679" duration="2310000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -266,7 +265,23 @@
       <option name="project" value="LOCAL" />
       <updated>1768074842143</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="more frontend changes">
+      <option name="closed" value="true" />
+      <created>1768442679793</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1768442679793</updated>
+    </task>
+    <task id="LOCAL-00016" summary="guhhhhhh">
+      <option name="closed" value="true" />
+      <created>1768442713209</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1768442713209</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -301,7 +316,9 @@
     <MESSAGE value="will come back to this later" />
     <MESSAGE value="fix the fuggin uhhh migration" />
     <MESSAGE value="please work" />
-    <option name="LAST_COMMIT_MESSAGE" value="please work" />
+    <MESSAGE value="more frontend changes" />
+    <MESSAGE value="guhhhhhh" />
+    <option name="LAST_COMMIT_MESSAGE" value="guhhhhhh" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

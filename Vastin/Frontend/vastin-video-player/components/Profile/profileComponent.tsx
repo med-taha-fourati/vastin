@@ -82,13 +82,15 @@ export default function ProfileComponent() {
                     {tabValue === 0 && (
                         <Grid container spacing={3}>
                             {PLACEHOLDER_VIDEOS.map((video) => (
-                                <VideoCard id={video.id} 
+                                <div key={null}>
+                                    <VideoCard id={video.id} 
                                            title={video.title} 
                                            description={video.description} 
                                            length={video.length} 
                                            videoPath={video.videoPath} 
                                            thumbnailPath={video.thumbnailPath} 
                                            owner={video.owner} />
+                                </div>
                             ))}
                         </Grid>
                     )}
