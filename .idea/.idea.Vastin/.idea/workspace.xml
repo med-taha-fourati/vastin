@@ -9,10 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/User.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Models/Video.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Video.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -25,8 +27,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -151,7 +153,8 @@
       <workItem from="1767996087974" duration="2030000" />
       <workItem from="1768070260726" duration="4553000" />
       <workItem from="1768436634469" duration="6139000" />
-      <workItem from="1768526693679" duration="2310000" />
+      <workItem from="1768526693679" duration="2454000" />
+      <workItem from="1768605054653" duration="1183000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -281,7 +284,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768442713209</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="me tired">
+      <option name="closed" value="true" />
+      <created>1768529080437</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1768529080437</updated>
+    </task>
+    <option name="localTasksCounter" value="18" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -318,7 +329,8 @@
     <MESSAGE value="please work" />
     <MESSAGE value="more frontend changes" />
     <MESSAGE value="guhhhhhh" />
-    <option name="LAST_COMMIT_MESSAGE" value="guhhhhhh" />
+    <MESSAGE value="me tired" />
+    <option name="LAST_COMMIT_MESSAGE" value="me tired" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
