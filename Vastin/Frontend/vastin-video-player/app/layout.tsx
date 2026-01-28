@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Funnel_Display } from "next/font/google";
 import "./globals.css";
+import { AuthProvider } from "@/context/AuthContext";
 
 const funnelDisplaySans = Funnel_Display({
   variable: "--font-funnel-display-sans",
@@ -21,7 +22,9 @@ export default function RootLayout({
       <body
         className={`${funnelDisplaySans.className} antialiased`}
       >
-        {children}
+        <AuthProvider>
+          {children}
+        </AuthProvider>
       </body>
     </html>
   );

@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Http;
+using Vastin.Models;
+
 namespace Vastin.DTO;
 
 public class VideoDTO
@@ -9,5 +12,6 @@ public class VideoDTO
     public IFormFile File { get; set; } = default!;
     public string VideoPath { get; set; } = string.Empty;
     public string ThumbnailPath { get; set; } = string.Empty;
+    public VideoVisibility Visibility { get; set; } = VideoVisibility.Public;
     public UserDTO Owner { get; set; }
 }

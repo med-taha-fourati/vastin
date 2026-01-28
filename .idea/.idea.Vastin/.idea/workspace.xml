@@ -9,12 +9,34 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/route.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Controller/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/UserController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/DTO/CommentDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/CommentDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/DTO/UserDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/UserDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/DTO/VideoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/VideoDTO.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/route.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/videos/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/videos/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Models/User.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/User.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Models/Video.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Video.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/watch/page.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Comment.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/User.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Models/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Comment.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Program.cs" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Vastin.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Vastin.csproj" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/appsettings.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +75,7 @@
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="mock:///mnt/gaming/homework_folder/Vastin/Vastin/Controller/VideoController.cs" root0="SKIP_HIGHLIGHTING" />
+    <setting file="mock:///mnt/gaming/homework_folder/Vastin/Vastin/Service/VideoStream.cs" root0="SKIP_HIGHLIGHTING" />
   </component>
   <component name="MetaFilesCheckinStateConfiguration" checkMetaFiles="true" />
   <component name="ProjectColorInfo">{
@@ -154,7 +176,11 @@
       <workItem from="1768070260726" duration="4553000" />
       <workItem from="1768436634469" duration="6139000" />
       <workItem from="1768526693679" duration="2454000" />
-      <workItem from="1768605054653" duration="1183000" />
+      <workItem from="1768605054653" duration="1590000" />
+      <workItem from="1768761435542" duration="3314000" />
+      <workItem from="1769549975851" duration="2612000" />
+      <workItem from="1769588933535" duration="5513000" />
+      <workItem from="1769594513010" duration="337000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -292,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768529080437</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="backend changes">
+      <option name="closed" value="true" />
+      <created>1768606655844</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1768606655844</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -330,7 +364,9 @@
     <MESSAGE value="more frontend changes" />
     <MESSAGE value="guhhhhhh" />
     <MESSAGE value="me tired" />
-    <option name="LAST_COMMIT_MESSAGE" value="me tired" />
+    <MESSAGE value="backend improvements" />
+    <MESSAGE value="backend improvements" />
+    <option name="LAST_COMMIT_MESSAGE" value="backend improvements" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -347,6 +383,19 @@
           <properties exception="System.Threading.ThreadAbortException" breakIfHandledByOtherCode="false" displayValue="System.Threading.ThreadAbortException" />
           <option name="timeStamp" value="3" />
         </breakpoint>
+        <line-breakpoint enabled="true" type="DotNet Breakpoints">
+          <url>file://$PROJECT_DIR$/Vastin/Controller/VideoController.cs</url>
+          <line>221</line>
+          <properties documentPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" containingFunctionPresentation="Method 'UploadVideo'">
+            <startOffsets>
+              <option value="6530" />
+            </startOffsets>
+            <endOffsets>
+              <option value="6559" />
+            </endOffsets>
+          </properties>
+          <option name="timeStamp" value="4" />
+        </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>
   </component>

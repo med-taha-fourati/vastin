@@ -32,7 +32,7 @@ public class VideoStream
 
         var mimeType = GetMimeType(filePath);
         response.ContentType = mimeType;
-        response.Headers.Add("Accept-Ranges", "bytes");
+        response.Headers.Append("Accept-Ranges", "bytes");
 
         var rangeHeader = response.HttpContext.Request.Headers["Range"].ToString();
 
@@ -47,14 +47,14 @@ public class VideoStream
             if (start >= fileLength || end >= fileLength)
             {
                 response.StatusCode = StatusCodes.Status416RangeNotSatisfiable;
-                response.Headers.Add("Content-Range", $"bytes */{fileLength}");
+                response.Headers.Append("Content-Range", $"bytes */{fileLength}");
                 return;
             }
 
             var contentLength = end - start + 1;
 
             response.StatusCode = StatusCodes.Status206PartialContent;
-            response.Headers.Add("Content-Range", $"bytes {start}-{end}/{fileLength}");
+            response.Headers.Append("Content-Range", $"bytes {start}-{end}/{fileLength}");
             response.ContentLength = contentLength;
 
             await using var fileStream = new FileStream(

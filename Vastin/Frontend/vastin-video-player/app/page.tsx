@@ -7,7 +7,7 @@ export default function Hero() {
 
             {/* these colors work like opengl colors (cuz its webgl duhh....) */}
             <div className="absolute inset-0 z-0">
-                <Threads color={[0.32, 0.15, 1.00]} />
+                <Threads color={[0.137, 0.71, 0.827]} />
             </div>
 
             <div className="z-10 flex flex-col items-center text-center px-4">
@@ -20,7 +20,7 @@ export default function Hero() {
                 </p>
 
                 <Link href="/explore">
-                    <button className="px-8 py-3 bg-indigo-600 hover:bg-indigo-500 text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(79,70,229,0.4)]">
+                    <button className="px-8 py-3 bg-[#23b5d3] hover:bg-[#23b5d3] text-white font-medium rounded-full transition-all duration-300 transform hover:scale-105 shadow-[0_0_20px_rgba(35, 181, 211,0.4)]">
                         Get Started
                     </button>
                 </Link>

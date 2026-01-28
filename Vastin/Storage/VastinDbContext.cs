@@ -29,6 +29,11 @@ public class VastinDbContext : DbContext
             entity.Property(e => e.Title).IsRequired();
             entity.Property(e => e.Length).IsRequired();
             entity.Property(e => e.VideoPath).IsRequired();
+            entity.Property(e => e.Visibility)
+                .HasConversion<string>()
+                .IsRequired();
+            entity.Property(e => e.CreatedAt)
+                .IsRequired();
             
             entity.HasOne(e => e.Owner)
                 .WithMany()

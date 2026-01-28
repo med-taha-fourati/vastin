@@ -12,6 +12,9 @@ public class Comment
     public string Content { get; set; }
     
     [Required]
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    
+    [Required]
     [ForeignKey("User_Comment")]
     public User CommentOwner { get; set; }
     

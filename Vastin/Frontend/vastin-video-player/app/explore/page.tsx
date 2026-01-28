@@ -2,6 +2,7 @@
 
 
 import { useEffect, useState, useMemo } from "react";
+import Link from "next/link";
 import { Funnel_Display } from "next/font/google";
 import {
     AppBar,
@@ -25,12 +26,16 @@ import {
 import { ThemeProvider, createTheme } from "@mui/material/styles";
 import { Video } from "@/types/Video";
 import ProfileComponent from "@/components/Profile/profileComponent";
-import { Menu, Home, User, Sun, Moon } from "lucide-react";
+import { Menu, Home, User, Sun, Moon, LogOut } from "lucide-react";
 import { darkColorScheme, lightColorScheme } from "@/lib/colorScheme";
+import { useAuth } from "@/context/AuthContext";
+import { useRouter } from "next/navigation";
 
 const funnelDisplay = Funnel_Display({ subsets: ["latin"] });
 
 export default function Explore() {
+    const { user, logout } = useAuth();
+    const router = useRouter();
     const [videos, setVideos] = useState<Video[]>([]);
     const [loading, setLoading] = useState(true);
     const [isSidebarOpen, setIsSidebarOpen] = useState(true);
@@ -65,11 +70,20 @@ export default function Explore() {
     );
 
     useEffect(() => {
-        const timer = setTimeout(() => {
-            setVideos([]);
-            setLoading(false);
-        }, 1500);
-        return () => clearTimeout(timer);
+        const fetchVideos = async () => {
+            try {
+                const res = await fetch("/api/videos");
+                if (res.ok) {
+                    const data = await res.json();
+                    setVideos(data);
+                }
+            } catch (error) {
+                console.error("Failed to fetch videos", error);
+            } finally {
+                setLoading(false);
+            }
+        };
+        fetchVideos();
     }, []);
 
     const toggleSidebar = () => {
@@ -100,9 +114,37 @@ export default function Explore() {
                         <Typography variant="h6" noWrap component="div" sx={{ flexGrow: 1 }}>
                             Vastin
                         </Typography>
-                        <IconButton onClick={toggleTheme} color="inherit">
+
+                        <IconButton onClick={toggleTheme} color="inherit" sx={{ mr: 1 }}>
                             {mode === "light" ? <Sun /> : <Moon />}
                         </IconButton>
+
+                        {user ? (
+                            <Box sx={{ display: 'flex', alignItems: 'center' }}>
+                                <Typography variant="body2" sx={{ mr: 2, display: { xs: 'none', sm: 'block' } }}>
+                                    {user.username}
+                                </Typography>
+                                <IconButton onClick={() => logout()} color="inherit" title="Logout">
+                                    <LogOut />
+                                </IconButton>
+                            </Box>
+                        ) : (
+                            <Link href="/login" passHref>
+                                <Box
+                                    sx={{
+                                        bgcolor: 'primary.main',
+                                        color: 'black',
+                                        px: 2,
+                                        py: 0.5,
+                                        borderRadius: 1,
+                                        cursor: 'pointer',
+                                        fontWeight: 'bold'
+                                    }}
+                                >
+                                    Sign In
+                                </Box>
+                            </Link>
+                        )}
                     </Toolbar>
                 </AppBar>
 
@@ -189,7 +231,7 @@ export default function Explore() {
                             {loading && (
                                 <Grid container spacing={3}>
                                     {Array.from({ length: 8 }).map((_, i) => (
-                                        <Grid item xs={12} sm={6} md={4} lg={3} key={i}>
+                                        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={i}>
                                             <Card sx={{ bgcolor: "background.paper" }}>
                                                 <Skeleton variant="rectangular" height={160} animation="wave" />
                                                 <CardContent>
@@ -211,14 +253,16 @@ export default function Explore() {
                             {!loading && videos.length > 0 && (
                                 <Grid container spacing={3}>
                                     {videos.map((video) => (
-                                        <Grid item xs={12} sm={6} md={4} lg={3} key={video.id}>
-                                            <Card sx={{ bgcolor: "background.paper", cursor: "pointer" }}>
-                                                <CardMedia component="img" height="160" image={video.thumbnailPath} />
-                                                <CardContent>
-                                                    <Typography sx={{ fontWeight: 600 }}>{video.title}</Typography>
-                                                    <Typography sx={{ color: "text.secondary", fontSize: 14 }}>{video.owner.username}</Typography>
-                                                </CardContent>
-                                            </Card>
+                                        <Grid size={{ xs: 12, sm: 6, md: 4, lg: 3 }} key={Number(video.id)}>
+                                            <Link href={`/watch/${video.id}`} passHref style={{ textDecoration: 'none' }}>
+                                                <Card sx={{ bgcolor: "background.paper", cursor: "pointer", height: '100%' }}>
+                                                    <CardMedia component="img" height="160" image={video.thumbnailPath || "/placeholder.jpg"} />
+                                                    <CardContent>
+                                                        <Typography sx={{ fontWeight: 600, color: 'text.primary' }} noWrap>{video.title}</Typography>
+                                                        <Typography sx={{ color: "text.secondary", fontSize: 14 }}>{video.owner?.username}</Typography>
+                                                    </CardContent>
+                                                </Card>
+                                            </Link>
                                         </Grid>
                                     ))}
                                 </Grid>

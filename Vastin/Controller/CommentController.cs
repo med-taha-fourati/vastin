@@ -19,56 +19,75 @@ public class CommentController : ControllerBase
     }
 
     [HttpGet]
-    public IActionResult GetComments()
+    public async Task<IActionResult> GetComments()
     {
-        var comments = _context.Comments
+        var comments = await _context.Comments
             .Include(c => c.CommentOwner)
             .Include(c => c.VideoOwner)
-            .ToList();
+            .OrderByDescending(c => c.CreatedAt)
+            .ToListAsync();
 
-        return Ok(comments);
-    }
+        var response = comments.Select(c => new CommentResponseDTO
+        {
+            Id = c.Id,
+            Content = c.Content,
+            CreatedAt = c.CreatedAt,
+            CommentOwner = new UserResponseDTO
+            {
+                Id = c.CommentOwner.Id,
+                Username = c.CommentOwner.Username
+            },
+            VideoOwnerId = c.VideoOwnerId
+        }).ToList();
 
-    [HttpGet("{id}")]
-    public IActionResult GetComment(int id)
-    {
-        var comment = _context.Comments
-            .Include(c => c.CommentOwner)
-            .Include(c => c.VideoOwner)
-            .FirstOrDefault(c => c.Id == id);
-
-        if (comment == null)
-            return NotFound();
-
-        return Ok(comment);
+        return Ok(response);
     }
 
     [HttpGet("video/{videoId}")]
-    public IActionResult GetCommentsByVideo(int videoId)
+    public async Task<IActionResult> GetCommentsByVideo(int videoId)
     {
-        var comments = _context.Comments
+        var comments = await _context.Comments
             .Include(c => c.CommentOwner)
-            .Include(c => c.VideoOwner)
-            .Where(c => c.VideoOwner.Id == videoId)
-            .ToList();
+            .Where(c => c.VideoOwnerId == videoId)
+            .OrderByDescending(c => c.CreatedAt)
+            .ToListAsync();
 
-        return Ok(comments);
+        var response = comments.Select(c => new CommentResponseDTO
+        {
+            Id = c.Id,
+            Content = c.Content,
+            CreatedAt = c.CreatedAt,
+            CommentOwner = new UserResponseDTO
+            {
+                Id = c.CommentOwner.Id,
+                Username = c.CommentOwner.Username
+            },
+            VideoOwnerId = c.VideoOwnerId
+        }).ToList();
+
+        return Ok(response);
     }
 
-    [HttpPost("add")]
-    public IActionResult AddComment(
+    [HttpPost]
+    public async Task<IActionResult> AddComment(
         [FromBody] CommentDTO dto,
-        [FromQuery] int userId,
         [FromQuery] int videoId
-        )
+    )
     {
         try
         {
-            var user = _context.Users.Find(userId);
+            if (!ModelState.IsValid)
+                return BadRequest(ModelState);
+
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+                return Unauthorized("You must be logged in to comment");
+
+            var user = await _context.Users.FindAsync(userId.Value);
             if (user == null)
                 return BadRequest("Invalid user");
 
-            var video = _context.Videos.Find(videoId);
+            var video = await _context.Videos.FindAsync(videoId);
             if (video == null)
                 return BadRequest("Invalid video");
 
@@ -76,51 +95,28 @@ public class CommentController : ControllerBase
             {
                 Content = dto.Content,
                 CommentOwner = user,
-                VideoOwner = video
+                CommentOwnerId = user.Id,
+                VideoOwner = video,
+                VideoOwnerId = video.Id
             };
 
             _context.Comments.Add(comment);
-            _context.SaveChanges();
+            await _context.SaveChangesAsync();
 
-            return Ok(comment);
-        }
-        catch (Exception e)
-        {
-            return BadRequest(e.Message);
-        }
-    }
+            var response = new CommentResponseDTO
+            {
+                Id = comment.Id,
+                Content = comment.Content,
+                CreatedAt = comment.CreatedAt,
+                CommentOwner = new UserResponseDTO
+                {
+                    Id = user.Id,
+                    Username = user.Username
+                },
+                VideoOwnerId = video.Id
+            };
 
-    [HttpPatch("{id}")]
-    public IActionResult UpdateComment([FromRoute] int id, 
-        [FromQuery] int userId,
-        [FromQuery] int videoId,
-        [FromBody] CommentDTO dto)
-    {
-        try
-        {
-            var comment = _context.Comments
-                .Include(c => c.CommentOwner)
-                .Include(c => c.VideoOwner)
-                .FirstOrDefault(c => c.Id == id);
-
-            if (comment == null)
-                return NotFound();
-
-            var user = _context.Users.Find(userId);
-            if (user == null)
-                return BadRequest("Invalid user");
-
-            var video = _context.Videos.Find(videoId);
-            if (video == null)
-                return BadRequest("Invalid video");
-
-            comment.Content = dto.Content;
-            comment.CommentOwner = user;
-            comment.VideoOwner = video;
-
-            _context.SaveChanges();
-
-            return Ok(comment);
+            return Ok(response);
         }
         catch (Exception e)
         {
@@ -129,15 +125,32 @@ public class CommentController : ControllerBase
     }
 
     [HttpDelete("{id}")]
-    public IActionResult DeleteComment(int id)
+    public async Task<IActionResult> DeleteComment(int id)
     {
-        var comment = _context.Comments.Find(id);
-        if (comment == null)
-            return NotFound();
+        try
+        {
+            var userId = HttpContext.Session.GetInt32("UserId");
+            if (userId == null)
+                return Unauthorized("You must be logged in to delete comments");
 
-        _context.Comments.Remove(comment);
-        _context.SaveChanges();
+            var comment = await _context.Comments
+                .Include(c => c.CommentOwner)
+                .FirstOrDefaultAsync(c => c.Id == id);
 
-        return Ok();
+            if (comment == null)
+                return NotFound();
+
+            if (comment.CommentOwnerId != userId.Value)
+                return Forbid("You can only delete your own comments");
+
+            _context.Comments.Remove(comment);
+            await _context.SaveChangesAsync();
+
+            return Ok(new { message = "Comment deleted successfully" });
+        }
+        catch (Exception e)
+        {
+            return BadRequest(e.Message);
+        }
     }
 }

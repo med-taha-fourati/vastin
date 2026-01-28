@@ -1,9 +1,9 @@
-import {User} from "@/types/User";
-import {Video} from "@/types/Video";
+import { User } from "./User";
 
 export type Comment = {
-    id: Number;
-    content: String;
+    id: number;
+    content: string;
+    createdAt: string;
     commentOwner: User;
-    commentVideo: Video;
-}
+    videoOwnerId: number;
+};

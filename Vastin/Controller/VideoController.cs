@@ -3,6 +3,8 @@ using Microsoft.EntityFrameworkCore;
 using Vastin.DTO;
 using Vastin.Models;
 using Vastin.Service;
+using Microsoft.AspNetCore.Authorization;
+using System.Security.Claims;
 
 namespace Vastin.Controller;
 
@@ -21,22 +23,56 @@ public class VideoController : ControllerBase
     }
 
     [HttpGet("/video")]
-    public IActionResult GetVideos()
+    public async Task<IActionResult> GetVideos()
     {
-        var videos = _context.Videos.ToList();
-        return Ok(videos);
+        var videos = await _context.Videos
+            .Where(v => v.Visibility == VideoVisibility.Public)
+            .Include(v => v.Owner)
+            .OrderByDescending(v => v.CreatedAt)
+            .ToListAsync();
+            
+        var videoDtos = videos.Select(v => new 
+        {
+            v.Id,
+            v.Title,
+            v.Description,
+            v.ThumbnailPath,
+            v.VideoPath,
+            v.Length,
+            v.Visibility,
+            v.CreatedAt,
+            Owner = new { v.Owner.Id, v.Owner.Username }
+        });
+        
+        return Ok(videoDtos);
     }
 
     [HttpGet("/video/metadata/{id}")]
-    public IActionResult GetVideo([FromRoute] int id)
+    public async Task<IActionResult> GetVideo([FromRoute] int id)
     {
         try
         {
-            var video = _context.Videos.Find(id);
+            var video = await _context.Videos
+                .Include(v => v.Owner)
+                .FirstOrDefaultAsync(v => v.Id == id);
+                
             if (video == null)
                 return NotFound();
 
-            return Ok(video);
+            var response = new 
+            {
+                video.Id,
+                video.Title,
+                video.Description,
+                video.ThumbnailPath,
+                video.VideoPath,
+                video.Length,
+                video.Visibility,
+                video.CreatedAt,
+                Owner = new { video.Owner.Id, video.Owner.Username }
+            };
+
+            return Ok(response);
         }
         catch (Exception e)
         {
@@ -45,6 +81,7 @@ public class VideoController : ControllerBase
     }
 
     [HttpPatch("/video/{id}")]
+    [Authorize]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> UpdateVideo(
         [FromRoute] int id,
@@ -52,32 +89,28 @@ public class VideoController : ControllerBase
     {
         try
         {
-            var videoToUpdate = _context.Videos.Find(id);
+            var username = User.Identity?.Name ?? User.FindFirst(ClaimTypes.Name)?.Value;
+            
+            var videoToUpdate = await _context.Videos
+                .Include(v => v.Owner)
+                .FirstOrDefaultAsync(v => v.Id == id);
+
             if (videoToUpdate == null)
                 return NotFound();
 
-            videoToUpdate.Title = videoDto.Title;
-            videoToUpdate.Description = videoDto.Description;
-            videoToUpdate.ThumbnailPath = videoDto.ThumbnailPath;
+            if (videoToUpdate.Owner.Username != username)
+                return Forbid();
 
-            if (videoDto?.Owner != null)
-            {
-                var newOwner = await _context.Users
-                    .FirstOrDefaultAsync(u => u.Username == videoDto.Owner.Username);
-                
-                if (newOwner != null)
-                {
-                    videoToUpdate.Owner = newOwner;
-                }
-            }
+            videoToUpdate.Title = videoDto.Title ?? videoToUpdate.Title;
+            videoToUpdate.Description = videoDto.Description ?? videoToUpdate.Description;
+            videoToUpdate.ThumbnailPath = videoDto.ThumbnailPath ?? videoToUpdate.ThumbnailPath;
+            videoToUpdate.Visibility = videoDto.Visibility; 
 
-            if (videoDto?.File != null && videoDto.File.Length > 0)
+            
+            if (videoDto.File != null && videoDto.File.Length > 0)
             {
-                var oldVideoPath = videoToUpdate.VideoPath;
-                var newFileName = await _videoStream.SaveVideoAsync(videoDto.File);
+                var newFileName = await _videoStream.ReplaceVideoAsync(videoToUpdate.VideoPath, videoDto.File);
                 videoToUpdate.VideoPath = newFileName;
-                
-                await _videoStream.DeleteVideoAsync(oldVideoPath);
             }
 
             _context.Videos.Update(videoToUpdate);
@@ -92,12 +125,21 @@ public class VideoController : ControllerBase
     }
 
     [HttpDelete("/video/{id}")]
+    [Authorize]
     public async Task<IActionResult> DeleteVideo([FromRoute] int id)
     {
         try
         {
-            var video = _context.Videos.Find(id);
+            var username = User.Identity?.Name ?? User.FindFirst(ClaimTypes.Name)?.Value;
+            
+            var video = await _context.Videos
+                .Include(v => v.Owner)
+                .FirstOrDefaultAsync(v => v.Id == id);
+                
             if (video == null) return NotFound();
+
+            if (video.Owner.Username != username)
+                return Forbid();
 
             await _videoStream.DeleteVideoAsync(video.VideoPath);
 
@@ -116,7 +158,8 @@ public class VideoController : ControllerBase
     [HttpGet("video/{id}")]
     public async Task StreamVideo(int id)
     {
-        var video = _context.Videos.Find(id);
+        
+        var video = await _context.Videos.FindAsync(id);
         if (video == null)
         {
             Response.StatusCode = StatusCodes.Status404NotFound;
@@ -127,18 +170,24 @@ public class VideoController : ControllerBase
     }
 
     [HttpPost("upload")]
+    [Authorize]
     [Consumes("multipart/form-data")]
     public async Task<IActionResult> UploadVideo([FromForm] VideoDTO videoUpload)
     {
         try
         {
-            if (videoUpload?.File == null || videoUpload.File.Length == 0)
+            var username = User.Identity?.Name ?? User.FindFirst(ClaimTypes.Name)?.Value;
+            
+            if (string.IsNullOrEmpty(username))
+                return Unauthorized();
+
+            if (videoUpload.File == null || videoUpload.File.Length == 0)
                 return BadRequest("No video file provided");
 
             var fileName = await _videoStream.SaveVideoAsync(videoUpload.File);
             
             var videoOwner = await _context.Users
-                .FirstOrDefaultAsync(u => u.Username == videoUpload.Owner.Username);
+                .FirstOrDefaultAsync(u => u.Username == username);
 
             if (videoOwner == null)
                 return BadRequest("Owner not found");
@@ -150,13 +199,23 @@ public class VideoController : ControllerBase
                 VideoPath = fileName,
                 Length = videoUpload.Length,
                 ThumbnailPath = videoUpload.ThumbnailPath,
+                Visibility = videoUpload.Visibility,
                 Owner = videoOwner,
+                CreatedAt = DateTime.UtcNow 
             };
 
             _context.Videos.Add(video);
             await _context.SaveChangesAsync();
 
-            return Ok(video);
+            return Ok(new 
+            {
+                video.Id,
+                video.Title,
+                video.Description,
+                video.VideoPath,
+                video.ThumbnailPath,
+                Owner = new { videoOwner.Username }
+            });
         }
         catch (Exception e)
         {
