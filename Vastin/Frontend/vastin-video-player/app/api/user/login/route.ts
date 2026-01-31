@@ -24,17 +24,22 @@ export const POST = async (req: NextRequest) => {
         }
 
         const data = await response.json();
-        (await cookies()).set('token', data.token, {
+        
+        const res = NextResponse.json({
+            id: data.id,
+            username: data.username,
+        });
+        
+        res.cookies.set("token", data.token, {
             httpOnly: true,
-            secure: process.env.NODE_ENV === 'production',
-            path: '/',
-            maxAge: 86400 
+            secure: false,
+            //secure: process.env.NODE_ENV === "production",
+            sameSite: "lax",
+            path: "/",
+            maxAge: 60 * 60 * 24
         });
 
-        return NextResponse.json({
-            id: data.id,
-            username: data.username
-        });
+        return res;
 
     } catch (error) {
         console.error("Login Proxy Error:", error);

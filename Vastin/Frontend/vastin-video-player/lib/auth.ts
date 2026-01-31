@@ -1,4 +1,4 @@
-import { BASE_URL } from "@/types/url";
+import { NEXTJS_URL } from "@/types/url";
 
 export interface AuthUser {
     id: number;
@@ -7,7 +7,7 @@ export interface AuthUser {
 
 export async function getCurrentUser(): Promise<AuthUser | null> {
     try {
-        const res = await fetch(`${BASE_URL}/user/current`, {
+        const res = await fetch(`${NEXTJS_URL}/user/current`, {
             credentials: 'include',
         });
 
@@ -23,7 +23,7 @@ export async function getCurrentUser(): Promise<AuthUser | null> {
 }
 
 export async function login(username: string, password: string): Promise<AuthUser> {
-    const res = await fetch(`${BASE_URL}/user/login`, {
+    const res = await fetch(`${NEXTJS_URL}/user/login`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -41,7 +41,7 @@ export async function login(username: string, password: string): Promise<AuthUse
 }
 
 export async function register(username: string, password: string): Promise<AuthUser> {
-    const res = await fetch(`${BASE_URL}/user/register`, {
+    const res = await fetch(`${NEXTJS_URL}/user/register`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json',
@@ -60,7 +60,7 @@ export async function register(username: string, password: string): Promise<Auth
 }
 
 export async function logout(): Promise<void> {
-    await fetch(`${BASE_URL}/user/logout`, {
+    await fetch(`${NEXTJS_URL}/user/logout`, {
         method: 'POST',
         credentials: 'include',
     });

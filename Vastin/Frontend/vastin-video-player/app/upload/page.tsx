@@ -140,6 +140,7 @@ export default function UploadPage() {
         formData.append("Description", description);
         formData.append("Length", duration.toString());
         formData.append("Visibility", visibility);
+        formData.append("Owner.Username", user.username);
         // Owner logic handled by backend via JWT
 
         try {

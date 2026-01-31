@@ -9,34 +9,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Controller/UserController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/UserController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/DTO/CommentDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/CommentDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/DTO/UserDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/UserDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/DTO/VideoDTO.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/DTO/VideoDTO.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/route.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/videos/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/videos/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/explore/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/layout.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/login/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/register/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/watch/page.tsx" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/bun.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Comment.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Comment.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/User.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/User.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Models/Comment.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Models/Comment.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Program.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Service/VideoStream.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Storage/VastinDbContext.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Vastin.csproj" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Vastin.csproj" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/appsettings.json" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/appsettings.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/upload/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/upload/page.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/auth.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/url.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -180,7 +157,8 @@
       <workItem from="1768761435542" duration="3314000" />
       <workItem from="1769549975851" duration="2612000" />
       <workItem from="1769588933535" duration="5513000" />
-      <workItem from="1769594513010" duration="337000" />
+      <workItem from="1769594513010" duration="639000" />
+      <workItem from="1769862497028" duration="3185000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -326,7 +304,15 @@
       <option name="project" value="LOCAL" />
       <updated>1768606655844</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="change the jwt secret according to your liking">
+      <option name="closed" value="true" />
+      <created>1769595068719</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1769595068719</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -366,7 +352,8 @@
     <MESSAGE value="me tired" />
     <MESSAGE value="backend improvements" />
     <MESSAGE value="backend improvements" />
-    <option name="LAST_COMMIT_MESSAGE" value="backend improvements" />
+    <MESSAGE value="change the jwt secret according to your liking" />
+    <option name="LAST_COMMIT_MESSAGE" value="change the jwt secret according to your liking" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
