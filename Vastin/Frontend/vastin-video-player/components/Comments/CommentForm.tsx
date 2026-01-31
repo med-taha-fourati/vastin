@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import { Box, TextField, Button, Typography } from "@mui/material";
 import { useAuth } from "@/context/AuthContext";
 import { Send } from "lucide-react";
+import {NEXTJS_URL} from "@/types/url";
 
 interface CommentFormProps {
     videoId: number;
@@ -25,10 +26,10 @@ export default function CommentForm({ videoId, onCommentAdded }: CommentFormProp
         setError("");
 
         try {
-            const res = await fetch(`/api/comments?videoId=${videoId}`, {
+            const res = await fetch(`${NEXTJS_URL}/comments?videoId=${videoId}`, {
                 method: "POST",
                 headers: {
-                    "Content-Type": "application/json",
+                    "Content-Type": "application/json"
                 },
                 body: JSON.stringify({ content }),
                 credentials: "include",

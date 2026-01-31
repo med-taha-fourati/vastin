@@ -87,6 +87,16 @@ app.UseAuthorization();
 
 app.UseRateLimiter();
 
+app.Use(async (context, next) =>
+{
+    var token = context.Request.Headers["token"];
+    if (!string.IsNullOrEmpty(token))
+    {
+        context.Request.Headers.Authorization = $"Bearer {token}";
+    }
+
+    await next();
+});
 
 app.MapControllers();
 

@@ -1,3 +1,6 @@
+using System.Diagnostics;
+using System.Security.Claims;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using Vastin.DTO;
@@ -68,61 +71,54 @@ public class CommentController : ControllerBase
         return Ok(response);
     }
 
+    [Authorize]
     [HttpPost]
     public async Task<IActionResult> AddComment(
         [FromBody] CommentDTO dto,
         [FromQuery] int videoId
     )
     {
-        try
+        if (!ModelState.IsValid)
+            return BadRequest(ModelState);
+
+        var usernameClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+        if (usernameClaim == null)
+            return Unauthorized();
+    
+        var username = usernameClaim.Value;
+
+        var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+        if (user == null)
+            return BadRequest("Invalid user");
+
+        var video = await _context.Videos.FindAsync(videoId);
+        if (video == null)
+            return BadRequest("Invalid video");
+
+        var comment = new Comment
         {
-            if (!ModelState.IsValid)
-                return BadRequest(ModelState);
+            Content = dto.Content,
+            CommentOwnerId = user.Id,
+            VideoOwnerId = video.Id
+        };
 
-            var userId = HttpContext.Session.GetInt32("UserId");
-            if (userId == null)
-                return Unauthorized("You must be logged in to comment");
+        _context.Comments.Add(comment);
+        await _context.SaveChangesAsync();
 
-            var user = await _context.Users.FindAsync(userId.Value);
-            if (user == null)
-                return BadRequest("Invalid user");
-
-            var video = await _context.Videos.FindAsync(videoId);
-            if (video == null)
-                return BadRequest("Invalid video");
-
-            var comment = new Comment
-            {
-                Content = dto.Content,
-                CommentOwner = user,
-                CommentOwnerId = user.Id,
-                VideoOwner = video,
-                VideoOwnerId = video.Id
-            };
-
-            _context.Comments.Add(comment);
-            await _context.SaveChangesAsync();
-
-            var response = new CommentResponseDTO
-            {
-                Id = comment.Id,
-                Content = comment.Content,
-                CreatedAt = comment.CreatedAt,
-                CommentOwner = new UserResponseDTO
-                {
-                    Id = user.Id,
-                    Username = user.Username
-                },
-                VideoOwnerId = video.Id
-            };
-
-            return Ok(response);
-        }
-        catch (Exception e)
+        return Ok(new CommentResponseDTO
         {
-            return BadRequest(e.Message);
-        }
+            Id = comment.Id,
+            Content = comment.Content,
+            CreatedAt = comment.CreatedAt,
+            CommentOwner = new UserResponseDTO
+            {
+                Id = user.Id,
+                Username = user.Username
+            },
+            VideoOwnerId = video.Id
+        });
     }
+
 
     [HttpDelete("{id}")]
     public async Task<IActionResult> DeleteComment(int id)

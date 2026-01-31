@@ -9,6 +9,8 @@ export async function POST(req: NextRequest) {
         if (!videoId) {
             return new NextResponse("Video ID required", { status: 400 });
         }
+        
+        const token = req.cookies.get('token')?.value;
 
         const body = await req.json();
 
@@ -16,7 +18,7 @@ export async function POST(req: NextRequest) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
-                'Cookie': req.headers.get('cookie') || '',
+                Authorization: `Bearer ${token}`
             },
             body: JSON.stringify(body),
             credentials: 'include',

@@ -9,11 +9,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/video/[videoId]/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/user/login/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/upload/page.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/upload/page.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/auth.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/lib/auth.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/url.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/url.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/route.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Comments/CommentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Comments/CommentForm.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Program.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -158,7 +159,7 @@
       <workItem from="1769549975851" duration="2612000" />
       <workItem from="1769588933535" duration="5513000" />
       <workItem from="1769594513010" duration="639000" />
-      <workItem from="1769862497028" duration="3185000" />
+      <workItem from="1769862497028" duration="8000000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -312,7 +313,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769595068719</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="edited upload and auth logic to actually work">
+      <option name="closed" value="true" />
+      <created>1769869769124</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1769869769124</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -353,7 +362,8 @@
     <MESSAGE value="backend improvements" />
     <MESSAGE value="backend improvements" />
     <MESSAGE value="change the jwt secret according to your liking" />
-    <option name="LAST_COMMIT_MESSAGE" value="change the jwt secret according to your liking" />
+    <MESSAGE value="edited upload and auth logic to actually work" />
+    <option name="LAST_COMMIT_MESSAGE" value="edited upload and auth logic to actually work" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
