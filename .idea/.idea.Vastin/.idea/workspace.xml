@@ -10,7 +10,8 @@
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Profile/profileComponent.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/types/Video.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -83,7 +84,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected=".NET Launch Settings Profile.Vastin: http">
+  <component name="RunManager" selected="npm.dev">
     <configuration name="Vastin: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Vastin/Vastin.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -156,7 +157,8 @@
       <workItem from="1769588933535" duration="5513000" />
       <workItem from="1769594513010" duration="639000" />
       <workItem from="1769862497028" duration="8485000" />
-      <workItem from="1769962104755" duration="767000" />
+      <workItem from="1769962104755" duration="1286000" />
+      <workItem from="1769984285073" duration="367000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -326,7 +328,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769878235332</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="added profile video/my endpoint">
+      <option name="closed" value="true" />
+      <created>1769963200149</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1769963200149</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -369,7 +379,8 @@
     <MESSAGE value="change the jwt secret according to your liking" />
     <MESSAGE value="edited upload and auth logic to actually work" />
     <MESSAGE value="more than half the basic functions are implemented" />
-    <option name="LAST_COMMIT_MESSAGE" value="more than half the basic functions are implemented" />
+    <MESSAGE value="added profile video/my endpoint" />
+    <option name="LAST_COMMIT_MESSAGE" value="added profile video/my endpoint" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

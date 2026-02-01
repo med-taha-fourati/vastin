@@ -22,7 +22,7 @@ import {
     Skeleton
 } from "@mui/material";
 import { Upload, Trash2 } from "lucide-react";
-import { Video } from "@/types/Video";
+import {Video, visibilityResolver} from "@/types/Video";
 import { BASE_URL } from "@/types/url";
 import { useAuth } from "@/context/AuthContext";
 
@@ -187,7 +187,7 @@ export default function ProfileComponent() {
                                                                 {video.title}
                                                             </Typography>
                                                             <Typography variant="caption" color="text.secondary">
-                                                                {video.visibility} • {new Date(video.createdAt).toLocaleDateString()}
+                                                                {visibilityResolver(video.visibility)} • {new Date(video.createdAt).toLocaleDateString()}
                                                             </Typography>
                                                         </Box>
                                                         <IconButton
