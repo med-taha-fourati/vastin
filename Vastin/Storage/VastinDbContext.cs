@@ -29,10 +29,15 @@ public class VastinDbContext : DbContext
             entity.Property(e => e.Title).IsRequired();
             entity.Property(e => e.Length).IsRequired();
             entity.Property(e => e.VideoPath).IsRequired();
+            entity.Property(e => e.Visibility)
+                .HasConversion<string>()
+                .IsRequired();
+            entity.Property(e => e.CreatedAt)
+                .IsRequired();
             
             entity.HasOne(e => e.Owner)
                 .WithMany()
-                .HasForeignKey("OwnerId")
+                .HasForeignKey(e => e.OwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
         });
         
@@ -43,12 +48,12 @@ public class VastinDbContext : DbContext
             
             entity.HasOne(e => e.CommentOwner)
                 .WithMany()
-                .HasForeignKey("CommentOwnerId")
+                .HasForeignKey(e => e.CommentOwnerId)
                 .OnDelete(DeleteBehavior.Restrict);
             
             entity.HasOne(e => e.VideoOwner)
                 .WithMany()
-                .HasForeignKey("VideoOwnerId")
+                .HasForeignKey(e => e.VideoOwnerId)
                 .OnDelete(DeleteBehavior.Cascade);
         });
     }

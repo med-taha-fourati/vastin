@@ -12,10 +12,17 @@ public class Comment
     public string Content { get; set; }
     
     [Required]
+    public DateTime CreatedAt { get; set; } = DateTime.UtcNow;
+    
+    [Required]
     [ForeignKey("User_Comment")]
     public User CommentOwner { get; set; }
+    
+    public int CommentOwnerId { get; set; }
     
     [Required]
     [ForeignKey("Video_Comment")]
     public Video VideoOwner { get; set; }
+    
+    public int VideoOwnerId { get; set; }
 }

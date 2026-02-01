@@ -1,0 +1,28 @@
+Index: Vastin/Controller/VideoController.cs
+IDEA additional info:
+Subsystem: com.intellij.openapi.diff.impl.patch.BaseRevisionTextPatchEP
+<+>using Microsoft.AspNetCore.Mvc;\nusing Microsoft.EntityFrameworkCore;\nusing Vastin.DTO;\nusing Vastin.Models;\nusing Vastin.Service;\n\nnamespace Vastin.Controller;\n\n[Produces(\"application/json\")]\n[Consumes(\"application/json\")]\n[ApiController]\npublic class VideoController : ControllerBase\n{\n    private readonly VastinDbContext _context;\n    private readonly VideoStream _videoStream;\n\n    public VideoController(VastinDbContext context, VideoStream videoStream)\n    {\n        _context = context;\n        _videoStream = videoStream;\n    }\n\n    [HttpGet(\"/video\")]\n    public IActionResult GetVideos()\n    {\n        var videos = _context.Videos.ToList();\n        return Ok(videos);\n    }\n\n    [HttpGet(\"/video/{id}\")]\n    public IActionResult GetVideo([FromRoute] int id)\n    {\n        try\n        {\n            var video = _context.Videos.Find(id);\n            if (video == null)\n                return NotFound();\n\n            return Ok(video);\n        }\n        catch (Exception e)\n        {\n            return BadRequest(e.Message);\n        }\n    }\n\n    [HttpPatch(\"/video/{id}\")]\n    [Consumes(\"multipart/form-data\")]\n    public async Task<IActionResult> UpdateVideo(\n        [FromRoute] int id,\n        [FromForm] VideoDTO videoDto)\n    {\n        try\n        {\n            var videoToUpdate = _context.Videos.Find(id);\n            if (videoToUpdate == null)\n                return NotFound();\n\n            videoToUpdate.Title = videoDto.Title;\n            videoToUpdate.Description = videoDto.Description;\n            videoToUpdate.ThumbnailPath = videoDto.ThumbnailPath;\n\n            if (videoDto?.Owner != null)\n            {\n                var newOwner = await _context.Users\n                    .FirstOrDefaultAsync(u => u.Username == videoDto.Owner.Username);\n                \n                if (newOwner != null)\n                {\n                    videoToUpdate.Owner = newOwner;\n                }\n            }\n\n            if (videoDto?.File != null && videoDto.File.Length > 0)\n            {\n                var oldVideoPath = videoToUpdate.VideoPath;\n                var newFileName = await _videoStream.SaveVideoAsync(videoDto.File);\n                videoToUpdate.VideoPath = newFileName;\n                \n                await _videoStream.DeleteVideoAsync(oldVideoPath);\n            }\n\n            _context.Videos.Update(videoToUpdate);\n            await _context.SaveChangesAsync();\n\n            return Ok(videoToUpdate);\n        }\n        catch (Exception e)\n        {\n            return BadRequest(e.Message);\n        }\n    }\n\n    [HttpDelete(\"/video/{id}\")]\n    public async Task<IActionResult> DeleteVideo([FromRoute] int id)\n    {\n        try\n        {\n            var video = _context.Videos.Find(id);\n            if (video == null) return NotFound();\n\n            await _videoStream.DeleteVideoAsync(video.VideoPath);\n\n            _context.Videos.Remove(video);\n            \n            await _context.SaveChangesAsync();\n\n            return Ok();\n        }\n        catch (Exception e)\n        {\n            return BadRequest(e.Message);\n        }\n    }\n\n    [HttpGet(\"stream/{id}\")]\n    public async Task StreamVideo(int id)\n    {\n        var video = _context.Videos.Find(id);\n        if (video == null)\n        {\n            Response.StatusCode = StatusCodes.Status404NotFound;\n            return;\n        }\n\n        await _videoStream.StreamVideoAsync(Response, video.VideoPath);\n    }\n\n    [HttpPost(\"upload\")]\n    [Consumes(\"multipart/form-data\")]\n    public async Task<IActionResult> UploadVideo([FromForm] VideoDTO videoUpload)\n    {\n        try\n        {\n            if (videoUpload?.File == null || videoUpload.File.Length == 0)\n                return BadRequest(\"No video file provided\");\n\n            var fileName = await _videoStream.SaveVideoAsync(videoUpload.File);\n            \n            var videoOwner = await _context.Users\n                .FirstOrDefaultAsync(u => u.Username == videoUpload.Owner.Username);\n\n            if (videoOwner == null)\n                return BadRequest(\"Owner not found\");\n\n            var video = new Video\n            {\n                Title = videoUpload.Title,\n                Description = videoUpload.Description,\n                VideoPath = fileName,\n                Length = videoUpload.Length,\n                ThumbnailPath = videoUpload.ThumbnailPath,\n                Owner = videoOwner,\n            };\n\n            _context.Videos.Add(video);\n            await _context.SaveChangesAsync();\n\n            return Ok(video);\n        }\n        catch (Exception e)\n        {\n            return BadRequest(e.Message);\n        }\n    }\n}
+Subsystem: com.intellij.openapi.diff.impl.patch.CharsetEP
+<+>UTF-8
+===================================================================
+diff --git a/Vastin/Controller/VideoController.cs b/Vastin/Controller/VideoController.cs
+--- a/Vastin/Controller/VideoController.cs	(revision 5d2c2ad575667e9a4b73634cca05af58388bf415)
++++ b/Vastin/Controller/VideoController.cs	(date 1765751715103)
+@@ -27,7 +27,7 @@
+         return Ok(videos);
+     }
+ 
+-    [HttpGet("/video/{id}")]
++    [HttpGet("/video/metadata/{id}")]
+     public IActionResult GetVideo([FromRoute] int id)
+     {
+         try
+@@ -113,7 +113,7 @@
+         }
+     }
+ 
+-    [HttpGet("stream/{id}")]
++    [HttpGet("video/{id}")]
+     public async Task StreamVideo(int id)
+     {
+         var video = _context.Videos.Find(id);
