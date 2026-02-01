@@ -47,6 +47,32 @@ public class VideoController : ControllerBase
         return Ok(videoDtos);
     }
 
+    [HttpGet("/video/my")]
+    public async Task<IActionResult> GetMyVideos()
+    {
+        try
+        {
+            var usernameClaim = User.FindFirst(ClaimTypes.NameIdentifier);
+            if (usernameClaim == null)
+                return Unauthorized();
+            
+            var username = usernameClaim.Value;
+
+            var user = await _context.Users.FirstOrDefaultAsync(u => u.Username == username);
+            if (user == null)
+                return BadRequest("Invalid user");
+            
+            var videos = _context.Videos.Where((v) => v.OwnerId == user.Id).ToList();
+
+            return Ok(videos);
+        }
+        catch (Exception e)
+        {
+            Console.WriteLine(e.Message);
+            return BadRequest(e.Message);
+        }
+    }
+
     [HttpGet("/video/metadata/{id}")]
     public async Task<IActionResult> GetVideo([FromRoute] int id)
     {

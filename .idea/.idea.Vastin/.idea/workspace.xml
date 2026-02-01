@@ -9,12 +9,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="d97b5cf3-6ef4-411d-aefe-7b6ea0c583a0" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/video/[videoId]/route.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/.idea.Vastin/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/CommentController.cs" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/route.ts" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/app/api/comments/route.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Comments/CommentForm.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Frontend/vastin-video-player/components/Comments/CommentForm.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Vastin/Program.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Program.cs" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" beforeDir="false" afterPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +83,7 @@
     ]
   }
 }</component>
-  <component name="RunManager" selected="npm.dev">
+  <component name="RunManager" selected=".NET Launch Settings Profile.Vastin: http">
     <configuration name="Vastin: http" type="LaunchSettings" factoryName=".NET Launch Settings Profile">
       <option name="LAUNCH_PROFILE_PROJECT_FILE_PATH" value="$PROJECT_DIR$/Vastin/Vastin.csproj" />
       <option name="LAUNCH_PROFILE_TFM" value="net8.0" />
@@ -159,7 +155,8 @@
       <workItem from="1769549975851" duration="2612000" />
       <workItem from="1769588933535" duration="5513000" />
       <workItem from="1769594513010" duration="639000" />
-      <workItem from="1769862497028" duration="8000000" />
+      <workItem from="1769862497028" duration="8485000" />
+      <workItem from="1769962104755" duration="767000" />
     </task>
     <task id="LOCAL-00001" summary="init">
       <option name="closed" value="true" />
@@ -321,7 +318,15 @@
       <option name="project" value="LOCAL" />
       <updated>1769869769124</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="more than half the basic functions are implemented">
+      <option name="closed" value="true" />
+      <created>1769878235332</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1769878235332</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -363,7 +368,8 @@
     <MESSAGE value="backend improvements" />
     <MESSAGE value="change the jwt secret according to your liking" />
     <MESSAGE value="edited upload and auth logic to actually work" />
-    <option name="LAST_COMMIT_MESSAGE" value="edited upload and auth logic to actually work" />
+    <MESSAGE value="more than half the basic functions are implemented" />
+    <option name="LAST_COMMIT_MESSAGE" value="more than half the basic functions are implemented" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -382,13 +388,13 @@
         </breakpoint>
         <line-breakpoint enabled="true" type="DotNet Breakpoints">
           <url>file://$PROJECT_DIR$/Vastin/Controller/VideoController.cs</url>
-          <line>221</line>
+          <line>247</line>
           <properties documentPath="$PROJECT_DIR$/Vastin/Controller/VideoController.cs" containingFunctionPresentation="Method 'UploadVideo'">
             <startOffsets>
-              <option value="6530" />
+              <option value="7306" />
             </startOffsets>
             <endOffsets>
-              <option value="6559" />
+              <option value="7335" />
             </endOffsets>
           </properties>
           <option name="timeStamp" value="4" />
